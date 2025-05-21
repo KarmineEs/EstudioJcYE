@@ -1,0 +1,781 @@
+/* Variables CSS para Temas Claro y Oscuro */
+:root {
+    --background-primary: #FAFAFA;
+    --background-secondary: #E0E0E0;
+    --text-primary: #4A4A4A;
+    --text-secondary: #1C2526;
+    --accent: #D4AF37;
+    --button-bg: #1C2526;
+    --button-text: #FAFAFA;
+    --button-hover-bg: #D4AF37;
+    --link-color: #1C2526;
+    --link-hover-color: #D4AF37;
+}
+
+[data-theme="dark"] {
+    --background-primary: #2E2E2E;
+    --background-secondary: #1C2526;
+    --text-primary: #FAFAFA;
+    --text-secondary: #D4AF37;
+    --accent: #D4AF37;
+    --button-bg: #D4AF37;
+    --button-text: #1C2526;
+    --button-hover-bg: #FAFAFA;
+    --link-color: #D4AF37;
+    --link-hover-color: #FAFAFA;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--background-primary);
+    line-height: 1.6;
+}
+
+/* Botón de Cambio de Tema */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    padding: 10px 20px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.theme-toggle:hover {
+    background: var(--button-hover-bg);
+}
+
+/* Encabezados */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-secondary);
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Menú Hamburguesa */
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: var(--text-secondary);
+    margin: 5px 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Barra Lateral */
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: var(--background-secondary);
+    color: var(--text-primary);
+    transition: all 0.5s ease-in-out;
+    z-index: 999;
+}
+
+#sidebar.active {
+    right: 0;
+}
+
+#sidebar ul {
+    padding: 50px 20px;
+}
+
+#sidebar ul li {
+    margin: 20px 0;
+}
+
+#sidebar ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+#sidebar ul li a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Animaciones */
+.animate-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s ease-in-out;
+}
+
+.animate-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1.2s ease-in-out;
+}
+
+.animate-slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 1.2s ease-in-out;
+}
+
+.animate-slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Portada */
+#portada {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1486406146923-c6832a105b2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: #FAFAFA;
+    text-align: center;
+}
+
+#portada::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#portada .content {
+    position: relative;
+    z-index: 2;
+}
+
+#portada .content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cta {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.3s ease-in-out;
+}
+
+.cta:hover {
+    background: var(--button-hover-bg);
+}
+
+/* Sección Equipo en Reunión */
+#equipo-reunion {
+    padding: 5rem 2rem;
+    background: var(--background-secondary);
+    text-align: center;
+}
+
+/* Nosotros */
+#nosotros {
+    padding: 5rem 2rem;
+    background: var(--background-primary);
+}
+
+#nosotros .content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#nosotros h3 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+}
+
+#nosotros p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* Servicios */
+#servicios {
+    padding: 5rem 2rem;
+    background: var(--background-secondary);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servicio-card {
+    background: var(--background-primary);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+}
+
+.servicio-card h3 {
+    color: var(--text-secondary);
+}
+
+.servicio-card p {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.servicio-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.servicio-card ul li {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Página de Servicio Detallado */
+#servicio-detalle {
+    padding: 5rem 2rem;
+    background: var(--background-primary);
+}
+
+#servicio-detalle .servicio-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#servicio-detalle h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#servicio-detalle h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+#servicio-detalle p,
+#servicio-detalle ul {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+#servicio-detalle ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+#servicio-detalle ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Banner de Abogados */
+#abogados {
+    padding: 5rem 0;
+    background: var(--background-secondary);
+    color: var(--text-primary);
+    position: relative;
+}
+
+.banner-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.banner-track {
+    display: flex;
+    transition: transform 1s ease-in-out; /* Animación más fluida */
+}
+
+.banner-slide {
+    flex: 0 0 100%;
+    min-height: 900px; /* Aumentamos la altura para hacerlo más largo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner-slide:hover {
+    transform: scale(1.01);
+}
+
+.abogado-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.abogado-content img {
+    width: 50%;
+    height: 800px; /* Aumentamos la altura de la imagen */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.abogado-info {
+    width: 45%;
+    text-align: left;
+}
+
+.abogado-info h3 {
+    font-size: 2rem;
+    color: var(--text-secondary);
+}
+
+.abogado-info p {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 1rem 0;
+}
+
+.abogado-info .cta {
+    margin-top: 1rem;
+}
+
+.nav-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    background: rgba(28, 37, 38, 0.7); /* Negro con opacidad */
+    color: var(--button-text);
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: background 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+    background: var(--accent); /* Dorado en hover */
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Página de Perfil de Abogado */
+#perfil-abogado {
+    padding: 5rem 2rem;
+    background: var(--background-primary);
+}
+
+.perfil-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.perfil-foto {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.perfil-titulo h1 {
+    font-size: 3rem;
+    color: var(--text-secondary);
+}
+
+.perfil-titulo .subtitulo {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.perfil-info {
+    margin-bottom: 3rem;
+}
+
+.info-block {
+    margin-bottom: 2rem;
+}
+
+.info-block h2 {
+    font-size: 1.8rem;
+    text-align: left;
+    color: var(--text-secondary);
+}
+
+.info-block p,
+.info-block ul {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.info-block ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.info-block ul li {
+    margin-bottom: 0.5rem;
+}
+
+.perfil-galeria {
+    margin-bottom: 3rem;
+}
+
+.perfil-galeria h2 {
+    font-size: 1.8rem;
+    text-align: left;
+    color: var(--text-secondary);
+}
+
+.foto-adicional {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 1rem 0;
+}
+
+/* Sección de Clientes */
+#clientes {
+    padding: 5rem 2rem;
+    background: var(--background-primary);
+    text-align: center;
+}
+
+.clientes-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.clientes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.clientes-grid img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    transition: transform 0.5s ease-in-out;
+}
+
+.clientes-grid img:hover {
+    transform: scale(1.1);
+}
+
+/* FAQs */
+#faqs {
+    padding: 5rem 2rem;
+    background: var(--background-secondary);
+}
+
+.faqs-list {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+}
+
+.faq-item h3 {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.faq-item p {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+/* Contacto */
+#contacto {
+    padding: 5rem 2rem;
+    background: var(--background-primary);
+}
+
+.contacto-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.contacto-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contacto-info p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.contacto-info a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.contacto-info a:hover {
+    color: var(--link-hover-color);
+}
+
+.contacto-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contacto-form h3 {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.contacto-form input,
+.contacto-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--background-secondary);
+    border-radius: 5px;
+    font-size: 1rem;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    transition: border-color 0.3s ease-in-out;
+}
+
+.contacto-form input:focus,
+.contacto-form textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.contacto-form textarea {
+    resize: vertical;
+}
+
+.contacto-form button {
+    padding: 10px 20px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.contacto-form button:hover {
+    background: var(--button-hover-bg);
+}
+
+/* Footer */
+footer {
+    padding: 3rem 2rem;
+    background: var(--background-secondary);
+    color: var(--text-primary);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.footer-section p,
+.footer-section ul li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: var(--link-hover-color);
+}
+
+.copy {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsividad */
+@media (max-width: 1200px) {
+    .abogado-content {
+        flex-direction: column;
+        align-items: center;
+        min-height: 1100px;
+    }
+
+    .abogado-content img {
+        width: 100%;
+        height: auto;
+        max-height: 600px;
+    }
+
+    .abogado-info {
+        width: 100%;
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .perfil-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .perfil-foto {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .abogado-content {
+        min-height: 900px;
+    }
+
+    .abogado-content img {
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .abogado-content {
+        min-height: 800px;
+    }
+
+    .abogado-content img {
+        max-height: 400px;
+    }
+
+    .clientes-grid img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .perfil-foto {
+        width: 200px;
+        height: 200px;
+    }
+}
